@@ -1,4 +1,4 @@
-import {get, writable} from 'svelte/store';
+import {writable} from 'svelte/store';
 
 import type {BasketItem} from "./basket-item";
 import type {Product} from "../../models/product";
@@ -31,13 +31,8 @@ export function changeQuantity(itemProduct: Product, newQuantity: number): void 
 
         if (index !== -1) {
             basketItems[index].quantity = newQuantity;
-            console.log(newQuantity);
         }
 
         return basketItems;
     });
-}
-
-export function getBasketItems(): BasketItem[] {
-    return get(basketStore);
 }

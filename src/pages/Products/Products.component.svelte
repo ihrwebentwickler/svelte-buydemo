@@ -30,10 +30,10 @@
     {:then products }
         {#each products as item, index}
             <div class="box">
-                <p>ArtNr: {item.id}</p>
+                <p>ArtNb: {item.id}</p>
                 <p>ArtName: {item.name}</p>
-                <p>ArtPreis: {item.price} €</p>
-                <p>ArtHersteller: {item.username}</p>
+                <p>ArtPrice: {item.price} €</p>
+                <p>Manufacturer: {item.username}</p>
                 <p>
                     <button on:click={() => onClickAddToBasket(item)}>Add to basket</button>
                 </p>
