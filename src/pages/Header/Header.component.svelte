@@ -1,9 +1,11 @@
 <script lang="ts">
+    import {link} from "svelte-routing";
+
     import {basketStore} from "../../store/basket/basket.store.";
 
     let basketInfo: { productAmount: number } = {productAmount: 0};
 
-    basketStore.subscribe((basketItems: basketStore[]) => {
+    basketStore.subscribe(basketItems => {
         basketInfo = {productAmount: basketItems.length};
     });
 </script>
@@ -29,8 +31,8 @@
 
 <header>
     <nav class="mt-1">
-        <a href="/products">Products</a>
-        <a class="basketinfo" href="/basket">Basket (contains {basketInfo.productAmount} products)</a>
+        <a href="/products" use:link>Products</a>
+        <a class="basketinfo" href="/basket" use:link>Basket (contains {basketInfo.productAmount} products)</a>
     </nav>
     <hr>
 </header>

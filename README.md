@@ -1,5 +1,5 @@
 # Buy-Demo (Svelte)
-This app serves as a reference for the best possible implementation of a store environment. Individual items can be
+This app serves as a reference for a good implementation of a store environment. Individual items can be
 placed in a shopping cart via a product page and the quantity can be changed via the basket page.
 
 # Installation

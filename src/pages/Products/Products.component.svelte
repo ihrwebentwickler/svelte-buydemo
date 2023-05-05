@@ -1,48 +1,35 @@
 <script lang="ts">
     import {onMount} from "svelte";
-    import type {Product} from "../../models/product";
+
     import {addToBasket} from "../../store/basket/basket.store.";
+    import type {Product} from "../../models/product";
 
     let products: Product[] = [];
 
     onMount(async () => {
         try {
             products = await fetch('https://jsonplaceholder.typicode.com/users').then(x => x.json());
-            products.map(item => item.price = 122);
+            products.map(item => item.price = 100);
         } catch (error: any) {
             console.error(error.message);
         }
     });
 
-    function onClickAddToBasket(item: Product) {
+    function onClickAddToBasket(item: Product): void {
         addToBasket(item);
     }
 </script>
-
-<style lang="scss">
-  p {
-    line-height: 1.5;
-  }
-
-  .grid {
-    div {
-      padding: 8px;
-      border: 2px solid silver;
-      border-radius: 2px;
-    }
-  }
-</style>
 
 <div>
     <h3>Products:</h3>
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-2 mt-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-3 gap-x-4 gap-y-1">
     {#await products}
         <p>...Loading</p>
     {:then products }
         {#each products as item, index}
-            <div>
+            <div class="box">
                 <p>ArtNr: {item.id}</p>
                 <p>ArtName: {item.name}</p>
                 <p>ArtPreis: {item.price} €</p>
